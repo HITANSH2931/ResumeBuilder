@@ -109,8 +109,7 @@ const Skill = ({id}) => {
            setSkills([...skills,{name:value}])
            setInput('');
         }
-       
-    }
+      
 
 
   return (
