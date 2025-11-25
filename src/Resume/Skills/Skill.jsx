@@ -5,7 +5,7 @@ import { addSkill } from '../../Redux/Resume'
 import { useState } from 'react'
 import axios from 'axios';
 import BASE_URL from '../../config'
-
+import { toast } from 'react-toastify'
 
 const Skill = ({id}) => {
 
@@ -13,6 +13,8 @@ const Skill = ({id}) => {
     const resume = useSelector((state) => state.resume.resume);
     const resumeObj = resume.find((res) => res.id == id);
     const skillsRedux = resumeObj.skills;
+
+    const[input,setInput] = useState('');
 
     const token = useSelector((state) => state.auth.user.token);
 
@@ -24,15 +26,23 @@ const Skill = ({id}) => {
       
         if(e.key == "Enter"){
 
-           if(skills.find((s) => s.name.toLowerCase() == e.target.value.toLowerCase())){
+           const value = input.trim();
 
-            e.target.value = ''  
-            return;      
+            if(!value){
+
+                setInput('');
+                return;
+            }
+
+            if(skills.find((s) => s.name.toLowerCase() == value.toLowerCase())){
+
+             setInput('');
+             return;      
         }
 
 
-           setSkills([...skills,{name:e.target.value}])
-           e.target.value = '';
+           setSkills([...skills,{name:value}])
+           setInput('')
         }
 
     }
@@ -58,6 +68,9 @@ const Skill = ({id}) => {
          })
 
          dispatch(addSkill({id,skill:response.data}))
+          toast.success("Saved Successfully",{
+                                   className:'text-gray-700 font-semibold text-[14px]'
+                               })
       }
 
       catch(error){
@@ -80,6 +93,25 @@ const Skill = ({id}) => {
 
     }
 
+    const handleAddSkill = () =>{
+
+      const value = input.trim();
+
+      if(!value) return;
+
+       if(skills.find((s) => s.name.toLowerCase() == value.toLowerCase())){
+
+            setInput('')
+            return;      
+        }
+
+
+           setSkills([...skills,{name:value}])
+           setInput('');
+        }
+       
+    }
+
 
   return (
     <div>
@@ -90,7 +122,7 @@ const Skill = ({id}) => {
            </div>
 
            <div className='mt-5 flex gap-2.5'>
-            <input onKeyDown={(e) => handleKeyDown(e)} type="text" placeholder='Enter a skill' className=' w-[70%] border border-solid border-gray-400 focus:outline-none focus:border-2 focus:border-blue-500 px-2 py-1.5 rounded-lg text-[14px]'/>
+            <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => handleKeyDown(e)} type="text" placeholder='Enter a skill' className=' w-[70%] border border-solid border-gray-400 focus:outline-none focus:border-2 focus:border-blue-500 px-2 py-1.5 rounded-lg text-[14px]'/>
             
             <div onClick={() => handleAddSkill()} className='text-white bg-blue-600 rounded-lg px-4 py-1.5 flex gap-1 font-semibold hover:bg-blue-700'>
             <PlusIcon width={18}/>
