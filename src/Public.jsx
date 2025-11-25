@@ -10,9 +10,9 @@ const Public = () => {
 
    useEffect(() =>{
 
-      if(token && verified) navigate("/")
+      if(token) navigate("/")
      
-   },[token,verified])
+   },[token])
 
   return  <Outlet/>
 }

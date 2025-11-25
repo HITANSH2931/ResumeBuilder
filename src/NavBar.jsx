@@ -39,7 +39,7 @@ const NavBar = () => {
 
   const handleLogout  = () =>{
 
-    SubmitData();
+  /*  SubmitData();*/
     dispatch(logout());
     dispatch(logoutResume());
     navigate("/")

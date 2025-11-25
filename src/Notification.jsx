@@ -20,7 +20,7 @@ export default function Notification() {
 
     
     const client = new Client({
-      brokerURL:"wss://resumebuilder-grzs.onrender.com/ws",
+      brokerURL:"ws://localhost:8080/ws",
       onConnect: () => {
     
       if (clientRef.current?.subscribed) return; 

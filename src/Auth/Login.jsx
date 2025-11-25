@@ -60,7 +60,8 @@ const Login = () => {
 
       dispatch(login(response.data));
       fetchAllResumes(response.data.token)
-      navigate("/verifyEmail")
+     /* navigate("/verifyEmail")*/
+       navigate("/");
     }
 
     catch(error){

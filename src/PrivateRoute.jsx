@@ -17,12 +17,12 @@ const PrivateRoute = () => {
          navigate("/login");
          return;
         }
-        if(!verified) {
+        /*if(!verified) {
           
           navigate("/verifyEmail");
           return;
 
-        }
+        }*/
 
 
     },[token,verified])
