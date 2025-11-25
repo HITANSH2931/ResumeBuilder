@@ -60,9 +60,9 @@ const SignUp = () => {
 
                 <div className='flex flex-col gap-1'>
 
-                  <div className='border border-solid border-gray-800 rounded-full  px-4 py-2'>
+                  <div className='border border-solid border-gray-800 rounded-full  px-4 py-2 flex items-center gap-2'>
                     <FontAwesomeIcon icon={faUser}/>
-                    <input type="text" placeholder='Name' className='pl-2 focus:outline-none focus:ring-0 text-[15px]'
+                    <input type="text" placeholder='Name' className='focus:outline-none focus:ring-0 text-[15px]'
                     {...register('name',{required:'Name is required'})}
                     />
                 </div>
@@ -73,9 +73,9 @@ const SignUp = () => {
 
                 <div className='flex flex-col gap-1'>
     
-                <div className='border border-solid border-gray-800 rounded-full  px-4 py-2'>
+                <div className='border border-solid border-gray-800 rounded-full  px-4 py-2 flex items-center gap-2'>
                     <FontAwesomeIcon icon={faEnvelope}/>
-                    <input type="email" placeholder='Email' className='pl-2 focus:outline-none focus:ring-0 text-[15px]'
+                    <input type="email" placeholder='Email' className=' focus:outline-none focus:ring-0 text-[15px]'
                      {...register('email',{required:'Email is required'})}
                     />
                 </div>
@@ -86,9 +86,9 @@ const SignUp = () => {
                 
                 <div className='flex flex-col gap-1'>
     
-                <div className='border border-solid border-gray-800 rounded-full  px-4 py-2'>
+                <div className='border border-solid border-gray-800 rounded-full  px-4 py-2 flex items-center gap-2'>
                     <FontAwesomeIcon icon={faLock} />
-                    <input type="password" placeholder='Password' className='pl-2 focus:outline-none focus:ring-0 text-[15px]'
+                    <input type="password" placeholder='Password' className='focus:outline-none focus:ring-0 text-[15px]'
                      {...register('password',{required:'Password is required'})}
                     />
                 </div>
@@ -103,7 +103,7 @@ const SignUp = () => {
                 <div className='flex flex-col gap-1 text-[14px]'>
 
                 <p className='text-gray-800'>Already Have an account ? 
-                <Link to="/login"><strong className='text-blue-400 hover:text-blue-500 underline pl-1'>Click here</strong></Link></p>
+                <Link to="/login" ><strong className='text-blue-400 hover:text-blue-500 underline pl-1'>Click here</strong></Link></p>
 
             
                 </div>

@@ -92,9 +92,9 @@ const Login = () => {
 
             <div className='flex flex-col gap-1'>
 
-            <div className='border border-solid border-gray-800 rounded-full  px-4 py-2'>
+            <div className='border border-solid border-gray-800 rounded-full  px-4 py-2 flex items-center gap-2'>
                 <FontAwesomeIcon icon={faEnvelope}/>
-                <input type="text" placeholder='Email' className='pl-2 focus:outline-none focus:ring-0 text-[15px]'
+                <input type="text" placeholder='Email' className='focus:outline-none focus:ring-0 text-[15px]'
                 {...register('email',{required:'Email is Required'})}
                 />
             </div>
@@ -105,9 +105,9 @@ const Login = () => {
 
              <div className='flex flex-col gap-1'>
 
-            <div className='border border-solid border-gray-800 rounded-full  px-4 py-2'>
+            <div className='border border-solid border-gray-800 rounded-full  px-4 py-2 flex items-center gap-2'>
                 <FontAwesomeIcon icon={faLock} />
-                <input type="password" placeholder='Password' className='pl-2 focus:outline-none focus:ring-0 text-[15px]'
+                <input type="password" placeholder='Password' className='focus:outline-none focus:ring-0 text-[15px]'
                 {...register('password',{required:'Password is Required'})}/>
             </div>
 
