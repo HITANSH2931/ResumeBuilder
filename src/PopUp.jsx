@@ -54,7 +54,7 @@ const PopUp = ({setClick}) => {
 
   }
   return (
-    <div className='flex justify-center items-center fixed inset-0 backdrop-blur-lg'>
+    <div className='flex justify-center items-center fixed inset-0 backdrop-blur-lg z-50'>
 
         <div className='bg-white/40 rounded-xl flex flex-col gap-6 w-[360px] p-12 shadow-md shadow-gray-400 '>
 

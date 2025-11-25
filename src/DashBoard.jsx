@@ -114,7 +114,7 @@ const DashBoard = () => {
         </div>
 
 
-        {edit && <EditResumeTitle setEdit={setEdit} id={id} setId={setId}/>}
+        {edit && <EditResumeTitle setEdit={setEdit}  id={id} setId={setId}/>}
 
       
     </div>
