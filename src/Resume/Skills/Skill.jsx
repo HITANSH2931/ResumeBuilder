@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addSkill } from '../../Redux/Resume'
 import { useState } from 'react'
 import axios from 'axios';
+import BASE_URL from '../../config'
+
 
 const Skill = ({id}) => {
 
@@ -41,7 +43,7 @@ const Skill = ({id}) => {
 
       try{
 
-         const response = await axios.post("http://localhost:8080/addSkills",{
+         const response = await axios.post(`${BASE_URL}/addSkills`,{
           skillDtoList:skills
 
          },{
