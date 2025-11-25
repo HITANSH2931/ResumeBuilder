@@ -2,14 +2,18 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { logoutResume } from './Redux/Resume'
-import { logout } from './Redux/AuthRedux';
+import { logout, verified } from './Redux/AuthRedux';
 import BASE_URL from './config';
+import axios from 'axios'
+import { Menu } from 'lucide-react';
+import { useState } from 'react';
 
 const NavBar = () => {
 
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.user?.token);
   const dispatch = useDispatch();
+  const[click,setClick] = useState(false);
 
   const location = useLocation();
   const showLinks = location.pathname === "/"
@@ -23,6 +27,7 @@ const NavBar = () => {
         Authorization:`Bearer ${token}`
        }
      })
+
     }
 
     catch(error){
@@ -57,36 +62,51 @@ const NavBar = () => {
               <path d="M14.8 14.2l1.2 1.2" stroke="#2563EB" stroke-width="1" stroke-linecap="round"/>
               </svg>
 
-             <h1 className="text-black text-xl font-bold">Resume Builder</h1>
+             <h1 className="text-black text-xl font-bold hidden lg:block">Resume Builder</h1>
 
                    </div>
 
 
-                   <div hidden={!showLinks} className='text-gray-700 text-[16px]  font-semibold flex gap-3.5 items-center'>
+                   <div hidden={!showLinks} className='hidden text-gray-700 text-[16px]  font-semibold md:flex gap-3.5 items-center'>
 
-                     <a href="#home" className='hover:text-gray-800 hover:underline '>Home</a>
+                    <a href="#home" className='hover:text-gray-800 hover:underline '>Home</a>
                     <a href="#features" className='hover:text-gray-800 hover:underline'>Features</a>
                     <a href="#testimonials" className='hover:text-gray-800 hover:underline'>Testimonials</a>
                     <a href="#footer" className='hover:text-gray-800 hover:underline'>Footer</a>
 
                     </div>
 
+                    <div hidden={!showLinks} className='md:hidden relative'>
+                      <Menu onClick={() => setClick(!click)}  width={24}/>
+
+                        {click && <div className=' text-[12px] absolute  z-50 top-full mt-5 backdrop-blur-md p-3 rounded-lg flex flex-col gap-2  shadow-[0-0_5px_gray] '>
+
+                    <a href="#home" className='hover:text-gray-800 hover:underline '>Home</a>
+                    <a href="#features" className='hover:text-gray-800 hover:underline'>Features</a>
+                    <a href="#testimonials" className='hover:text-gray-800 hover:underline'>Testimonials</a>
+                    <a href="#footer" className='hover:text-gray-800 hover:underline'>Footer</a>
+
+                    </div>}
+
+
+                    </div>
+
                   {!token ? (
                     <div className="flex gap-2">
-                        <button onClick={() => navigate("/signUp")}  className=" px-6 py-3 bg-indigo-500 hover:bg-indigo-700 active:scale-95 transition-all rounded-full text-white">
+                        <button onClick={() => navigate("/signUp")}  className=" rounded-lg px-2 md:px-6 py-3 bg-indigo-500 hover:bg-indigo-700 active:scale-95 transition-all md:rounded-full text-white">
                             Get started
                         </button>
-                        <button  onClick={() => navigate("/login")} href="" className=" px-6 py-3 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-slate-900" >
+                        <button  onClick={() => navigate("/login")} href="" className="rounded-lg px-2 md:px-6 py-3 border active:scale-95 hover:bg-slate-50 transition-all md:rounded-full text-slate-700 hover:text-slate-900" >
                             Login
                         </button>
                         
                     </div>)
                      :
                       (<div className="flex gap-2">
-                        <button onClick={() => navigate("/dashboard")}  className="px-6 py-3 bg-indigo-500 hover:bg-indigo-700 active:scale-95 transition-all rounded-full text-white">
+                        <button onClick={() => navigate("/dashboard")}  className="rounded-lg px-2 md:px-6 py-3 bg-indigo-500 hover:bg-indigo-700 active:scale-95 transition-all md:rounded-full text-white">
                             DashBoard
                         </button>
-                        <button  onClick={() => handleLogout()}  className="px-6 py-3 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-slate-900" >
+                        <button  onClick={() => handleLogout()}  className="rounded-lg px-2 md:px-6 py-3 border active:scale-95 hover:bg-slate-50 transition-all md:rounded-full text-slate-700 hover:text-slate-900" >
                             Logout
                         </button>
                     </div>)}

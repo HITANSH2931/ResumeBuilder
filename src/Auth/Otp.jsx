@@ -147,7 +147,7 @@ const Otp = () => {
   return (
     <div className='h-[500px] flex justify-center items-center'>
 
-        <form className='flex flex-col gap-9 max-w-md w-full shadow-[0_0_10px_gray]  p-6 font-display'>
+        <form className='flex flex-col gap-9 max-w-sm w-full shadow-[0_0_10px_gray]  p-6 font-display'>
 
             <div className='flex flex-col gap-4'>
             <h1 className='text-2xl text-center text-blue-600 font-bold'>Enter Verification Code</h1>

@@ -80,7 +80,7 @@ const VerifyEmail = () => {
 
         <div className='max-w-sm w-full shadow-[0_0_10px_gray] p-12 flex flex-col items-center gap-6'>
 
-           {message && <p className='bg-pink-400 text-white text-center text-[14px] px-2 py-2 rounded-lg'>{message}</p>}
+           {message && <p className='bg-pink-400 text-white text-center text-[14px] p-2.5 rounded-lg'>{message}</p>}
 
 
             <div className='flex flex-col gap-2'>
