@@ -1,35 +1,35 @@
+import { Globe, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Briefcase, Dot, Globe, Linkedin, Mail, Mailbox, MapIcon, MapPin, Phone, User } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
-const PersonalInfo = ({id,color}) => {
+const PersonalInfo1 = ({id,color}) => {
 
     const resumes = useSelector((state) => state.resume.resume);
     const resumeObj = resumes.find((res) => res.id == id);
     console.log(id)
     const info = resumeObj.personalInfo;
 
-
   return (
-       <div hidden={!info}  className='pb-5 border-b-2 border-solid ' style={{borderBottomColor:color}}>
+  
 
-            <div className='flex flex-col items-center gap-2.5'>
-            <strong hidden={!info?.fullName}  style={{color:color}} className=' text-3xl font-bold text-center block'>{info?.fullName}</strong>
+        <div hidden={!info}  className='flex justify-between items-center border-b-2 border-solid pb-5' style={{borderBottomColor:color}}>
 
-            <p hidden={!info?.profession} className='text-gray-800 font-semibold text-lg'>{info?.profession}</p>
+        <div className='flex flex-col gap-1.5'>
+            <h1  hidden={!info?.fullName} style={{color:color,borderBottomColor:color}} className='w-fit text-3xl font-bold border-b-2 border-solid  pb-1.5'>{info?.fullName}</h1>
+            <p hidden={!info?.profession} className='text-gray-700 text-[15px]'>{info?.profession}</p>
+        </div>
 
-             </div>
-
-                 <div className='flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3'>
+       
+                  <div className='flex flex-col  gap-y-1'>
                        
-                        <div hidden={!info?.emailAddress} className='flex items-center gap-1'>
+                        <div hidden={!info?.emailAddress} className='flex items-center gap-2'>
                           
                                 <Mail width={13}/>
                                   <p className='text-gray-700 text-[13px]'>{info?.emailAddress}</p>
  
                         </div>
             
-                        <div hidden={!info?.location} className='flex items-center gap-1'>
+                        <div hidden={!info?.location} className='flex items-center gap-2'>
                            
                                <MapPin width={13}/>
                                  <p className='text-gray-700 text-[13px]'>{info?.location}</p>
@@ -37,7 +37,7 @@ const PersonalInfo = ({id,color}) => {
                                
                         </div>
             
-                        <div  hidden={!info?.phoneNumber} className='flex items-center gap-1'>
+                        <div hidden={!info?.phoneNumber} className='flex items-center gap-2'>
                           
                                 <Phone width={13}/>
                                   <p className='text-gray-700 text-[13px]'>{info?.phoneNumber}</p>
@@ -47,7 +47,7 @@ const PersonalInfo = ({id,color}) => {
           
             
             
-                        <div hidden={!info?.linkedInProfile} className='flex items-center gap-1'>
+                        <div hidden={!info?.linkedInProfile} className='flex items-center gap-2'>
                            
                                 <Linkedin width={13}/> 
                            <a className='text-[13px] text-gray-700 hover:underline ' target='_blank' rel="noopener noreferrer" href={info?.linkedInProfile} >{info?.linkedInProfile}</a>
@@ -55,7 +55,7 @@ const PersonalInfo = ({id,color}) => {
   
                         </div>
             
-                        <div hidden={!info?.personalWebsite} className='flex items-center gap-1'>
+                        <div hidden={!info?.personalWebsite} className='flex items-center gap-2'>
                            
                                <Globe width={13}/>
                      <a className='text-[13px] text-gray-700 hover:underline ' target='_blank' rel="noopener noreferrer" href={info?.personalWebsite} >{info?.personalWebsite}</a>
@@ -64,10 +64,11 @@ const PersonalInfo = ({id,color}) => {
 
 
                         </div>
-            
 
-            </div>
+                        </div>
+           
+
   )
 }
 
-export default PersonalInfo
+export default PersonalInfo1

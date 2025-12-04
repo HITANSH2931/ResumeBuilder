@@ -1,4 +1,4 @@
-import { ArrowRight, Briefcase, ChevronLast, ChevronLeft, ChevronRight, Download, Globe, Linkedin, Mail, Mailbox, MapIcon, MapPin, Palette, Phone, User } from 'lucide-react';
+import { ArrowRight, Briefcase, ChevronLast, ChevronLeft, ChevronRight, Download, Globe, LayoutTemplate, Linkedin, Mail, Mailbox, MapIcon, MapPin, Palette, Phone, User } from 'lucide-react';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ResumeInfo from './ReusmeInfo/ResumeInfo';
@@ -10,6 +10,10 @@ import Project from './Project/Project';
 import Skill from './Skills/Skill';
 import { useEffect } from 'react';
 import { Check } from "lucide-react";
+import Template from './Template';
+import ResumeInfo1 from './ResumeInfo1/ResumeInfo1';
+import ResumeInfo2 from './ResumeInfo2/ResumeInfo2';
+import ResumeInfo3 from './ResumeInfo3/ResumeInfo3';
 
 
 const Resume = () => {
@@ -40,6 +44,13 @@ const Resume = () => {
   const[click,setClick] = useState(false);
   const[color,setColor] = useState("#1D4ED8");
 
+  const[template,setTemplate] = useState(false);
+  const[temp,setTemp] = useState(0);
+
+  console.log(temp,"temp");
+
+  
+
 
     useEffect(() => {
 
@@ -68,7 +79,7 @@ const Resume = () => {
   return (
     <div className='bg-blue-5 grid grid-cols-1 lg:grid-cols-[45%_48%] '>
 
-        <div className=' ml-10 xl:ml-30 mr-10 mt-20 bg-white border border-gray-300  rounded-lg '>
+        <div className='mx-5 sm:ml-10 xl:ml-30 sm:mr-10 mt-20 bg-white border border-gray-300  rounded-lg '>
 
         <div className='bg-gray-200 w-full'>
         <div className='h-1 rounded-lg transition-all duration-1200 ease-in-out bg-green-500' style={{
@@ -79,13 +90,20 @@ const Resume = () => {
 
                <div className='p-8'>
 
-               <div className='flex justify-between items-center pb-3 mb-4 border-b border-gray-300'>
+               <div className='flex justify-between items-center flex-wrap gap-y-2 pb-3 mb-4 border-b border-gray-300'>
 
                 <div className='flex gap-2 relative'>
-                    <button className=' text-[14px] font-semibold px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg hover:border hover:border-blue-300'>Template</button>
-                    
+
+                    <div onClick={() => setTemplate(!template)} className='flex items-center gap-2 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg hover:border hover:border-blue-300'>
+                    <LayoutTemplate width={16}/>
+                    <button className=' text-[14px] font-semibold '>Template</button>
+                     </div>
+
+
+                     {template && <Template value={temp} setTemp={setTemp}/>}
+
                     <div  onClick={() => setClick(!click)} className='flex items-center gap-1.5  bg-purple-100 hover:bg-purple-200 text-purple-600 rounded-lg px-3 py-2 hover:border hover:border-purple-300'>
-                    <Palette width={18} className='text-purple-600'/>
+                    <Palette width={16} className='text-purple-600'/>
                     <button  className='text-[14px] font-semibold'>Accent</button>
                      </div>
                    
@@ -140,9 +158,13 @@ const Resume = () => {
         </div>
 
 
-        <div className='mx-10 lg:mx-0'>
+        <div className='mx-5 sm:mx-10 lg:mx-0'>
              
-         {resumeId && <ResumeInfo id={resumeId} color={color}/>}
+         {resumeId && temp==0 && <ResumeInfo id={resumeId} color={color}/>}
+         {resumeId && temp==1 && <ResumeInfo1 id={resumeId} color={color}/>}
+         {resumeId && temp==2 && <ResumeInfo2 id={resumeId} color={color}/>}
+         {resumeId && temp==3 && <ResumeInfo3 id={resumeId} color={color}/>}
+
         </div>
 
         
