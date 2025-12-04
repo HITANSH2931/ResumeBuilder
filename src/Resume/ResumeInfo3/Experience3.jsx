@@ -12,7 +12,7 @@ const Experience3 = ({id,color}) => {
 
              <div   hidden={!experiences}  className='mt-8 flex '>
 
-               <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Professional Experience</strong>     
+               <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Experience</strong>     
             
                <div className='flex flex-col gap-2' >
 

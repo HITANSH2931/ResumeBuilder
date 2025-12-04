@@ -11,7 +11,7 @@ const Summary3 = ({id,color}) => {
 
     
         <div hidden={!info?.summary} className='mt-8 flex '>
-              <strong style={{color:color}} className='text-xl font-semibold w-fit'>Professional Summary</strong>
+              <strong style={{color:color}} className='text-xl font-semibold w-fit'>Summary</strong>
               <p   className=' mt-3.5 text-[12px]  text-gray-800  wrap-break-word'>{info?.summary}</p>
       </div>      
  
