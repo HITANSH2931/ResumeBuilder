@@ -10,7 +10,7 @@ const Project3 = ({id,color}) => {
 
   return (
   
-            <div hidden={!projects} className='mt-8 flex gap-14'>
+            <div hidden={!projects} className='mt-8 flex gap-20'>
 
                <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Projects</strong>
 
