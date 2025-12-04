@@ -11,7 +11,7 @@ const PersonalInfo3 = ({id,color}) => {
 
 
   return (
-       <div hidden={!info} >
+       <div hidden={!info} style={{borderBottomColor:color}} className='border-b-2 border-solid pb-5' >
 
             <div  className='flex flex-col items-center gap-2.5'>
             <strong hidden={!info?.fullName} style={{color:color}} className=' text-3xl font-bold text-center block'>{info?.fullName}</strong>
