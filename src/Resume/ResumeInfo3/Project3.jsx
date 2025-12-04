@@ -15,7 +15,7 @@ const Project3 = ({id,color}) => {
                <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Projects</strong>
 
                 
-               <div className='flex flex-col gap-2'>
+               <div className='flex flex-col gap-2 w-full'>
 
                 {projects?.map((p,index) =>(
                

@@ -13,7 +13,7 @@ const Education3 = ({id,color}) => {
 
                <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Education</strong>
                
-               <div className='flex flex-col gap-2'>
+               <div className='flex flex-col gap-2 w-full'>
 
                 {educations?.map((e,index) =>(
                
