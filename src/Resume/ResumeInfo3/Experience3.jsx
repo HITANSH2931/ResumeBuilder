@@ -10,7 +10,7 @@ const Experience3 = ({id,color}) => {
 
   return (
 
-             <div   hidden={!experiences}  className='mt-8 flex '>
+             <div   hidden={!experiences}  className='mt-8 flex gap-14 '>
 
                <strong style={{color:color}} className=' text-xl font-semibold w-fit'>Experience</strong>     
             
